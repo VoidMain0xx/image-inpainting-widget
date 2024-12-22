@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# **Image Inpainting Widget**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple React-based image inpainting tool that allows users to upload an image, draw masks on it, and save both the original image and the mask for further processing. This project includes a FastAPI backend for handling image uploads and storage.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## **Features**
 
-### `npm start`
+- **Image Upload**:
+  - Supports uploading images in JPEG/PNG format.
+  - Displays the uploaded image as the background.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Mask Drawing**:
+  - Allows users to draw a mask on the uploaded image using a brush.
+  - Adjustable brush size for finer control.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Canvas Operations**:
+  - Clear the canvas to reset the mask while keeping the uploaded image.
+  - Save the mask and the original image.
 
-### `npm test`
+- **FastAPI Backend**:
+  - Stores the uploaded images (original and mask) in a designated directory.
+  - Serves the stored images through an API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## **Tech Stack**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Frontend**
+- React
+- `react-canvas-draw`
+- Axios for API communication
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Backend**
+- FastAPI
+- Python
+- PIL for image handling
+- `os` for file management
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## **Setup Instructions**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Prerequisites**
+- Node.js and npm installed.
+- Python 3.7+ installed.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **Frontend Setup**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/VoidMain0xx/image-inpainting-widget.git
+   cd image-inpainting-widget/frontend
 
-## Learn More
+2. **Install dependencies**
+     ```bash
+     npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Run the development server**
+    ```bash
+    npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### **Backend Setup**
 
-### Code Splitting
+1. **Navigate to the backend directory**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd ../backend
+```
 
-### Analyzing the Bundle Size
+2. **Create a virtual environment**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+python -m venv venv
+source venv/bin/activate   
+```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. **Install dependencies**
 
-### Advanced Configuration
+```bash
+pip install fastapi uvicorn pillow
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+4. **pip install fastapi uvicorn pillow**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+pip install fastapi uvicorn pillow
+```
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5. **Run API**
+
+```bash
+uvicorn main:app --reload
+```
+
